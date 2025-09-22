@@ -1,0 +1,39 @@
+div.container {
+  border: 2px solid lightgray;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+fieldset {
+  background-color: lightgray;
+  margin-bottom: 10px;
+  border: lightgray;
+}
+
+legend {
+  font-weight: bold;
+}
+
+label {
+  display: inline-block;
+  width: 184px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+label,
+input {
+  margin-bottom: 5px;
+}
+
+#diaChi {
+  vertical-align: top;
+}
+
+#canNang {
+  accent-color: red;
+}
+
+#progress2 {
+  accent-color: red;
+}

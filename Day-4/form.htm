@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bài 2 - Tạo Form</title>
+    <link rel="stylesheet" href="form.css" />
+  </head>
+  <body>
+    <div class="container">
+        <form>
+            <fieldset class="ttcn">
+                <legend>Thông Tin Cá Nhân</legend>
+                <div>
+                <label>Tước vị:</label>
+                <select name="tuocVi" id="tuocVi">
+                    <option value="ong">Ông</option>
+                    <option value="ba">Bà</option>
+                    <option value="anh">Anh</option>
+                    <option value="chi">Chị</option>
+                </select>
+                </div>
+
+                <div>
+                <label>Họ và tên:</label>
+                <input type="text" name="hoTen" />
+                </div>
+
+                <div>
+                <label>Ngày sinh:</label>
+                <input type="date" name="ngaySinh" />
+                </div>
+
+                <div>
+                    <label>Giờ sinh:</label>
+                    <input type="time" name="gioSinh" />
+                </div>
+
+                <div>
+                <label>Giới tính:</label>
+                <input type="radio" name="gioiTinh" value="nam" /> <span>Nam</span>
+                <input type="radio" name="gioiTinh" value="nu" /> <span>Nữ</span>
+                </div>
+
+                <div>
+                <label>Sở thích:</label>
+                <input type="checkbox" name="soThich" value="theThao" /> <span>Thể thao</span>
+                <input type="checkbox" name="soThich" value="duLich" /> <span>Du lịch</span>
+                <input type="checkbox" name="soThich" value="amThuc" /> <span>Ẩm thực</span>
+                <div>
+                <label>&nbsp;</label>
+                <input type="checkbox" name="soThich" value="amNhac" /> <span>Âm nhạc</span>
+                <input type="checkbox" name="soThich" value="hocNgoaiNgu" /> <span>Học ngoại ngữ</span>
+                <input type="checkbox" name="soThich" value="kinhDoanh" /> <span>Kinh doanh</span>
+                </div>
+
+                
+            </fieldset>
+
+            <fieldset class="ttlh">
+                <legend>Thông Tin Liên Hệ</legend>
+                <div>
+                <label>Điện thoại:</label>
+                <input type="number" name="sdt" />
+                </div>
+
+                <div>
+                    <label>Email:</label>
+                    <input type="email" name="email" placeholder="ví dụ: demon1@apple.com"/>
+                </div>
+
+                <div>
+                    <label>Website:</label>
+                    <input type="text" name="website" id="website">
+                </div>
+
+                <div>
+                    <label>Mã tỉnh:</label>
+                    <input type="number" name="code" id="code">
+                </div>
+
+                <div>
+                    <label id="diaChi">Địa chỉ:</label>
+                    <textarea name="diaChi" id="diaChi" cols="60" rows="4"></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset class="sucKhoe">
+                <legend>Chỉ Số Sức Khỏe</legend>
+                <div>
+                    <label>Chiều cao (cm):</label>
+                    <input type="number" name="chieuCao" id="chieuCao">
+                </div>
+
+                <div>
+                    <label>Cân nặng [45kg-100kg]:</label>
+                    <input type="range" name="canNang" id="canNang" min="45" max="100">
+                </div>
+
+                <div>
+                    <label>Nhịp tim[60-100 nhịp/phút]:</label>
+                    <progress id="progress1" value="60" max="100"></progress>
+                </div>
+            </fieldset>
+
+            <fieldset class="gtcn">
+                <legend>Giấy Tờ Cá Nhân</legend>
+                <div>
+                    <label>Tài liệu:</label>
+                    <input type="file" name="taiLieu" id="taiLieu">
+                </div>
+                <div>
+                    <label>Tải lên 30%:</label>
+                    <progress id="progress2" value="30" max="100"></progress>
+
+            </fieldset>
+
+            <div class="btn">
+                <button type="submit">Gửi</button>
+                <button type="reset">Hủy</button>
+            </div>
+        </form>
+    </div>
+  </body>
+</html>
