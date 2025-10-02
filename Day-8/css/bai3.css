@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  position: relative;
+}
+input {
+  width: 15%;
+  height: 40px;
+  display: block;
+  margin: 20% auto;
+  text-align: start;
+  border: 2px solid gray;
+  border-radius: 5px;
+  padding: 12px 10px;
+  outline: none;
+  transition-property: border-color;
+  transition-duration: 1s;
+}
+
+label {
+  font-weight: bold;
+  position: absolute;
+  color: grey;
+  top: 10px;
+  left: 660px;
+  transition-property: top, background, padding, color;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+}
+
+input:focus,
+input:focus + label,
+input:valid + label {
+  top: -9px;
+  background: white;
+  padding: 0 1px;
+  border-color: purple;
+  color: purple;
+}

@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+label {
+  display: block;
+  border: 1px solid grey;
+  margin: 100px auto;
+  border-radius: 99px;
+  width: 130px;
+  height: 50px;
+  background-color: grey;
+  transition: background, padding-left;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+
+label::after {
+  content: "";
+  display: block;
+  border: 1px solid grey;
+  width: 47px;
+  height: 47px;
+  background: white;
+  border-radius: 50%;
+}
+
+#tongle:checked + label {
+  padding-left: 80px;
+  background: green;
+}
+
+#tongle:checked + label::after {
+  background: white;
+}

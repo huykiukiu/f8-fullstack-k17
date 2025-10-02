@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.open-modal {
+  display: inline-block;
+  border: 1px solid black;
+  background: lightgray;
+  padding: 2px;
+  margin: 6px 0px;
+}
+
+.box-modal {
+  background-color: white;
+  padding: 35px;
+  position: fixed;
+  border: 1px solid black;
+  display: none;
+  width: 50%;
+  top: 5%;
+  left: 26%;
+  z-index: 2;
+}
+
+.box-modal h2 span {
+  position: absolute;
+  left: 90%;
+}
+
+#key:checked ~ .box-modal {
+  display: block;
+}
+
+#key:checked ~ .overlay {
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.581);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: 1;
+}
+
+.close-modal {
+  font-weight: bold;
+}
+
+.close-modal:hover {
+  color: red;
+}
+
+hr {
+  width: 95%;
+}

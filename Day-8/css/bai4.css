@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div {
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid lightgray;
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
+  background: lightgray;
+}
+
+div::after {
+  content: "";
+  position: absolute;
+  background-color: red;
+  right: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-radius: 7px;
+  transition-property: width height;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+  z-index: 1;
+}
+
+div:hover::after {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+span {
+  position: absolute;
+  font-weight: bold;
+  transition-property: color;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+  color: white;
+  z-index: 2;
+}
