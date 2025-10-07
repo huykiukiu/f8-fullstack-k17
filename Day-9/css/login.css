@@ -21,7 +21,6 @@ label {
 }
 i {
   font-size: 1.6rem;
-  /* color: white; */
 }
 hr {
   border: none;
@@ -54,7 +53,7 @@ a {
   translate: 50%;
 }
 
-/* FORM BOX CSS */
+/* =======================FORM BOX CSS ===============================================================*/
 .form-box {
   position: fixed;
   border: 1px white solid;
@@ -65,6 +64,9 @@ a {
   top: 16%;
   right: 12%;
   padding: 64px;
+  translate: 0;
+  opacity: 1;
+  transition: translate 1.5s, opacity 1.5s;
 }
 .form-box .form {
   display: flex;
@@ -202,7 +204,7 @@ a {
   gap: 10px;
 }
 
-/* INFOR CSS */
+/* ==================================INFOR CSS============================================================ */
 .info {
   position: fixed;
   display: flex;
@@ -274,13 +276,12 @@ a {
   color: white;
 }
 
-/* Phần tử giả, lớp giả */
+/* Phần tử giả, lớp giả ALL*/
 .form-box .form .remember-me-label::before {
   transition: all 0.4s;
 }
 .other-choice .remember-me-label::before {
   content: "";
-
   display: inline-block;
   border: 1px solid lightgray;
   width: 20px;
@@ -339,12 +340,156 @@ a {
   left: -50px;
 }
 
+#register-toggle:checked ~ .form-box {
+  translate: 200%;
+  opacity: 0;
+}
+#register-toggle:checked ~ .register-box {
+  translate: 0;
+  opacity: 1;
+}
+#login-toggle:checked ~ .form-box {
+  translate: 0;
+  opacity: 1;
+}
+#login-toggle:checked ~ .register-box {
+  translate: 200%;
+  opacity: 0;
+}
+
 /* Click BTN LOGIN/ REGISTER */
-#login-toggle:checked + label,
-#register-toggle:checked + label {
+#login-toggle:checked ~ .info label[for="login-toggle"],
+#register-toggle:checked ~ .info label[for="register-toggle"] {
   color: black;
   background: white;
 }
+
+/*==================================REGISTER FORM CSS=========================== */
+.register-box {
+  position: fixed;
+  border: 1px white solid;
+  background: white;
+  border-radius: 10px;
+  width: 484px;
+  height: 700px;
+  top: -25px;
+  right: 12%;
+  padding: 64px;
+  translate: 200%;
+  opacity: 0;
+  transition: translate 1.5s, opacity 1.5s;
+}
+.register-box h2 {
+  text-align: center;
+  font-size: 2.5rem;
+}
+.register-box .register-form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  margin-top: 50px;
+}
+.register-box .register-form .register-input {
+  border: 1px solid black;
+  width: 356px;
+  height: 54px;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.register-item1,
+.register-item2,
+.register-item3,
+.register-item4 {
+  position: relative;
+  z-index: 1000;
+}
+
+.email-register-label,
+.username-register-label,
+.password-register-label,
+.repeat-register-label {
+  position: absolute;
+  top: 18px;
+  left: 15px;
+  font-weight: 600;
+  font-size: 1.5rem;
+  background: white;
+  padding: 1px;
+  color: grey;
+  z-index: 1003;
+}
+.register-box .send-via-email-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: grey;
+}
+.register-box button {
+  background: #23d2e2;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.register-box .register-form p {
+  font-size: 1.4rem;
+  line-height: 1.7142857143em;
+  font-weight: 500;
+}
+
+.register-box .register-form span {
+  color: #23d2e2;
+  font-weight: bold;
+}
+
+/* =====================LỚP GIẢ PHẦN TỬ GIẢ CHO REGISTER FORM */
+.register-box .register-form .register-input:focus + label,
+.register-box .register-form .register-input:valid + label,
+.register-box .register-form .register-input:focus,
+.register-box .register-form .register-input:valid {
+  top: -7px;
+  left: 15px;
+  font-size: 1.2rem;
+  border-color: blue;
+}
+
+.register-box .send-via-email-label::before {
+  content: "";
+  display: inline-block;
+  border: 1px solid lightgray;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+}
+
+#send-via-email:checked + .send-via-email-label::before {
+  content: "X";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: #1abcff;
+}
+
+.register-box::before {
+  content: "";
+  display: block;
+  background-image: url(../images/rocket.png);
+  width: 160px;
+  height: 156px;
+  position: absolute;
+  top: -67px;
+  left: -50px;
+}
+
+.register-box button:hover {
+  background: #037b86;
+}
+
 /* RESPONSIVE */
 @media screen and (max-width: 1499.98px) {
   .decor-layer {

@@ -16,6 +16,9 @@
   <body>
     <div class="background">
       <div class="decor-layer"></div>
+      <input type="radio" name="tab-toggle" id="login-toggle" hidden checked />
+      <input type="radio" name="tab-toggle" id="register-toggle" hidden />
+
       <section class="info">
         <svg>
           <path
@@ -31,16 +34,7 @@
           play with our quests and badges gamification system!
         </p>
         <div class="two-btn">
-          <input
-            type="radio"
-            name="tab-toggle"
-            id="login-toggle"
-            hidden
-            checked
-          />
           <label for="login-toggle" class="lable-mot">Login </label>
-
-          <input type="radio" name="tab-toggle" id="register-toggle" hidden />
           <label for="register-toggle" name="tab" class="label-hai"
             >Register</label
           >
@@ -95,6 +89,72 @@
           <a href="#"><i id="twitch" class="fa-brands fa-twitch"></i></a>
           <a href="#"><i id="youtube" class="fa-brands fa-youtube"></i></a>
         </div>
+      </section>
+
+      <section class="register-box">
+        <h2>Create your Account!</h2>
+        <form class="register-form">
+          <div class="register-item1">
+            <input
+              type="text"
+              class="register-input"
+              id="email-input"
+              required
+            />
+            <label for="email-input" class="email-register-label"
+              >Your Email</label
+            >
+          </div>
+
+          <div class="register-item2">
+            <input
+              type="text"
+              class="register-input"
+              id="username-register-input"
+              required
+            />
+            <label for="username-register-input" class="username-register-label"
+              >Username</label
+            >
+          </div>
+
+          <div class="register-item3">
+            <input
+              type="password"
+              class="register-input"
+              id="password-register-input"
+              required
+            />
+            <label for="password-input" class="password-register-label"
+              >Password</label
+            >
+          </div>
+
+          <div class="register-item4">
+            <input
+              type="password"
+              class="register-input"
+              id="repeat-register-input"
+              required
+            />
+            <label for="repeat-register-input" class="repeat-register-label"
+              >Repeat Password</label
+            >
+          </div>
+
+          <input type="checkbox" id="send-via-email" hidden />
+          <label for="send-via-email" class="send-via-email-label"
+            >Send me news and updates via email</label
+          >
+
+          <button>Register Now!</button>
+
+          <p>
+            You'll receive a confirmation email in your inbox with a link to
+            activate your account. If you have any problems,
+            <span>contact us</span>!
+          </p>
+        </form>
       </section>
     </div>
   </body>
