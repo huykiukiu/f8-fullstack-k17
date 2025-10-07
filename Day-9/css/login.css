@@ -10,6 +10,9 @@
 html {
   font-size: 10px;
 }
+body {
+  overflow-y: auto;
+}
 img {
   display: block;
 }
@@ -213,6 +216,8 @@ a {
   align-items: center;
   top: 200px;
   left: 240px;
+  width: 430px;
+  height: 400px;
 }
 .info svg {
   display: block;
@@ -418,6 +423,7 @@ a {
   padding: 1px;
   color: grey;
   z-index: 1003;
+  transition: top 0.5s, left 0.5s;
 }
 .register-box .send-via-email-label {
   display: flex;
@@ -464,6 +470,7 @@ a {
   width: 20px;
   height: 20px;
   border-radius: 5px;
+  transition: all 0.4s;
 }
 
 #send-via-email:checked + .send-via-email-label::before {
@@ -492,21 +499,42 @@ a {
 
 /* RESPONSIVE */
 @media screen and (max-width: 1499.98px) {
+  /* body {
+    overflow-y: auto;
+    height: 100vh;
+  } */
+
+  .background {
+    /* height: auto;
+    min-height: 100vh; */
+    overflow-y: visible;
+  }
   .decor-layer {
     display: none;
   }
 }
 
 @media screen and (max-width: 1364.98px) {
+  body {
+    overflow-y: auto;
+    /* height: 100vh; */
+  }
+
   .info {
-    position: fixed;
-    top: 50%;
+    position: absolute;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -138%);
   }
   .form-box {
-    position: fixed;
-    top: 70%;
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+  }
+  .register-box {
+    position: absolute;
+    top: 105%;
     left: 50%;
     transform: translate(-50%, -55%);
   }
@@ -515,6 +543,9 @@ a {
   }
 
   .form-box::before {
+    display: none;
+  }
+  .register-box::before {
     display: none;
   }
 }
