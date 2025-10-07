@@ -1,0 +1,375 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Rajdhani:wght@300;400;500;600;700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: 0;
+  border: 0;
+}
+html {
+  font-size: 10px;
+}
+img {
+  display: block;
+}
+
+p,
+a,
+label {
+  font-family: "Rajdhani", sans-serif;
+}
+i {
+  font-size: 1.6rem;
+  /* color: white; */
+}
+hr {
+  border: none;
+  height: 1px;
+  background-color: #dcdcdc;
+  margin: 35px 0;
+}
+
+a {
+  text-decoration: none;
+}
+.background {
+  position: relative;
+  background-image: url(../images/landing-background.jpg);
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+.background .decor-layer {
+  background-image: url(../images/back-cham-bi.png);
+  position: absolute;
+  border: 1px solid white;
+  width: 1100px;
+  height: 1100px;
+  top: -100px;
+  right: -50px;
+  border-radius: 50%;
+  translate: 50%;
+}
+
+/* FORM BOX CSS */
+.form-box {
+  position: fixed;
+  border: 1px white solid;
+  background: white;
+  border-radius: 10px;
+  width: 486px;
+  height: 547px;
+  top: 16%;
+  right: 12%;
+  padding: 64px;
+}
+.form-box .form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  margin-top: 50px;
+}
+.input-item1,
+.input-item2 {
+  position: relative;
+  z-index: 2000;
+}
+.input-text {
+  padding-left: 15px;
+}
+.input-item1 label {
+  position: absolute;
+  z-index: 2003;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: grey;
+  top: 18px;
+  left: 15px;
+  background: white;
+  padding: 1px;
+  transition: top 0.5s, left 0.5s;
+}
+
+.input-item2 label {
+  position: absolute;
+  z-index: 2001;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: grey;
+  top: 18px;
+  left: 15px;
+  background: white;
+  padding: 1px;
+  transition: top 0.5s, left 0.5s;
+}
+
+.form-box h2 {
+  text-align: center;
+  font-size: 2.5rem;
+}
+.form-box .input-text {
+  border: 1px solid black;
+  border-radius: 10px;
+  border-color: lightgray;
+  width: 356px;
+  height: 54px;
+}
+.form-box .other-choice {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-box .other-choice label {
+  font-weight: bold;
+}
+.form-box .other-choice a {
+  color: gray;
+  font-weight: 700;
+}
+.form-box .other-choice label,
+.form-box .other-choice a {
+  font-size: 1.4rem;
+  font-family: "Rajdhani", sans-serif;
+}
+.form-box button {
+  border: 1px #5753e4 solid;
+  border-radius: 10px;
+  background: #5753e4;
+  padding: 15px;
+  color: white;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: bold;
+}
+.form-box .divider {
+  text-align: center;
+  position: relative;
+}
+
+.form-box p {
+  position: absolute;
+  margin: 30px;
+  font-size: 1.4rem;
+  text-align: center;
+  background: white;
+  padding: 0 10px;
+  top: -37px;
+  left: 50px;
+  font-weight: bold;
+}
+
+.form-box .social-links i {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-box h2 {
+  font-family: "Rajdhani", sans-serif;
+}
+.form-box .social-links #facebook {
+  color: white;
+  background: #3763d2;
+  transition: translate 0.5s;
+}
+
+.form-box .social-links #twitter {
+  color: white;
+  background: #1abcff;
+  transition: translate 0.5s;
+}
+
+.form-box .social-links #twitch {
+  color: white;
+  background: #7b5dfa;
+  transition: translate 0.5s;
+}
+
+.form-box .social-links #youtube {
+  color: white;
+  background: #fd434f;
+  transition: translate 0.5s;
+}
+
+.form-box .social-links {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* INFOR CSS */
+.info {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 200px;
+  left: 240px;
+}
+.info svg {
+  display: block;
+  align-self: center;
+  fill: white;
+  width: 42px;
+  height: 60px;
+}
+.info h2 {
+  margin: 0;
+  font-family: "Titillium Web", sans-serif;
+  font-size: 2rem;
+  color: white;
+  line-height: 1;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.info h1 {
+  line-height: 0.9;
+  margin: 0;
+  font-size: 10rem;
+  font-weight: 900;
+  color: white;
+  text-transform: uppercase;
+  font-family: "Titillium Web", sans-serif;
+  margin-bottom: 50px;
+}
+
+.info p {
+  color: white;
+  font-weight: 500;
+  font-size: 2rem;
+  text-align: center;
+  max-width: 430px;
+  margin-bottom: 50px;
+}
+.info .two-btn {
+  display: flex;
+}
+.info .two-btn label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px white solid;
+  width: 180px;
+  height: 54px;
+}
+.info .two-btn .lable-mot {
+  font-size: 1.4rem;
+  font-weight: bold;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  color: white;
+}
+.info .two-btn .label-hai {
+  font-size: 1.4rem;
+  font-weight: bold;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  color: white;
+}
+
+/* Phần tử giả, lớp giả */
+.form-box .form .remember-me-label::before {
+  transition: all 0.4s;
+}
+.other-choice .remember-me-label::before {
+  content: "";
+
+  display: inline-block;
+  border: 1px solid lightgray;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+}
+
+.other-choice .remember-me-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#remember-me:checked + label::before {
+  content: "X";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: #1abcff;
+}
+
+#username-input:focus + label,
+#username-input:valid + label,
+#password-input:focus + label,
+#password-input:valid + label,
+#username-input:focus,
+#password-input:focus {
+  top: -7px;
+  left: 15px;
+  font-size: 1.2rem;
+  border-color: blue;
+}
+
+.other-choice a:hover {
+  color: #1abcff;
+}
+
+.form-box button:hover {
+  background: blue;
+}
+#facebook:hover,
+#twitter:hover,
+#twitch:hover,
+#youtube:hover {
+  translate: 0 -15%;
+}
+
+.form-box::before {
+  content: "";
+  display: block;
+  background-image: url(../images/rocket.png);
+  width: 160px;
+  height: 156px;
+  position: absolute;
+  top: -67px;
+  left: -50px;
+}
+
+/* Click BTN LOGIN/ REGISTER */
+#login-toggle:checked + label,
+#register-toggle:checked + label {
+  color: black;
+  background: white;
+}
+/* RESPONSIVE */
+@media screen and (max-width: 1499.98px) {
+  .decor-layer {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1364.98px) {
+  .info {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -138%);
+  }
+  .form-box {
+    position: fixed;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+  }
+  .info p {
+    display: none;
+  }
+
+  .form-box::before {
+    display: none;
+  }
+}
