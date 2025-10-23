@@ -1,0 +1,50 @@
+// rổ giá
+const PRICE_1 = 1678; // cho kWh từ 0 - 50
+const PRICE_2 = 1734; // cho kWh từ 51 - 100
+const PRICE_3 = 2014; // cho kWh từ 101 - 200
+const PRICE_4 = 2536; // cho kWh từ 201 - 300
+const PRICE_5 = 2834; // cho kWh từ 301 - 400
+const PRICE_6 = 2927; // cho kWh từ 401 trở lên
+
+// các mốc
+const LEVEL_1 = 50;
+const LEVEL_2 = 100;
+const LEVEL_3 = 200;
+const LEVEL_4 = 300;
+const LEVEL_5 = 400;
+
+//bài làm here
+let input = 640;
+let output;
+if (input <= LEVEL_1) {
+  output = input * PRICE_1;
+} else if (input <= LEVEL_2) {
+  output = LEVEL_1 * PRICE_1 + (input - LEVEL_1) * PRICE_2;
+} else if (input <= LEVEL_3) {
+  output =
+    LEVEL_1 * PRICE_1 +
+    (LEVEL_2 - LEVEL_1) * PRICE_2 +
+    (input - LEVEL_2) * PRICE_3;
+} else if (input <= LEVEL_4) {
+  output =
+    LEVEL_1 * PRICE_1 +
+    (LEVEL_2 - LEVEL_1) * PRICE_2 +
+    (LEVEL_3 - LEVEL_2) * PRICE_3 +
+    (input - LEVEL_3) * PRICE_4;
+} else if (input <= LEVEL_5) {
+  output =
+    LEVEL_1 * PRICE_1 +
+    (LEVEL_2 - LEVEL_1) * PRICE_2 +
+    (LEVEL_3 - LEVEL_2) * PRICE_3 +
+    (LEVEL_4 - LEVEL_3) * PRICE_4 +
+    (input - LEVEL_4) * PRICE_5;
+} else {
+  output =
+    LEVEL_1 * PRICE_1 +
+    (LEVEL_2 - LEVEL_1) * PRICE_2 +
+    (LEVEL_3 - LEVEL_2) * PRICE_3 +
+    (LEVEL_4 - LEVEL_3) * PRICE_4 +
+    (LEVEL_5 - LEVEL_4) * PRICE_5 +
+    (input - LEVEL_5) * PRICE_6;
+}
+console.log(`Giá tiền phải trả là: ${output} đồng`);

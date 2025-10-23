@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bài 10</title>
+    <script src="./js/bai10.js"></script>
+  </head>
+  <body>
+    <p>Cho 1 số nguyên bất kỳ, hiển thị danh sách các số chẵn và số lẻ</p>
+    <pre>
+let num = 10;
+let oddNumber = "";
+let evenNumber = "";
+for (let i = 0; i <= num; i++) {
+  if (i % 2 === 0) {
+    const flag = num % 2 === 0 ? num : num - 1;
+    evenNumber += `${i}${i === flag ? "" : ", "}`;
+  } else {
+    const flag = num % 2 !== 0 ? num : num - 1;
+    oddNumber += `${i}${i === flag ? "" : ", "}`;
+  }
+}
+console.log(`Số chẵn: ${evenNumber}`);
+console.log(`Số lẻ: ${oddNumber}`);</pre
+    >
+  </body>
+</html>
