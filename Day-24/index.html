@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todos App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="bg-[#8758FF] min-h-screen pt-[80px]">
+      <div
+        class="w-[450px] bg-[#1A1A40] p-[32px] mx-auto rounded-md pb-10"
+        id="container"
+      >
+        <h1 class="text-white text-3xl font-bold text-center mb-8">
+          Get Things Done !
+        </h1>
+        <form class="mb-7">
+          <div class="flex justify-center">
+            <input
+              class="flex-1 text-white outline-none border border-[#8758FF] bg-[#1A1A40] inline-block h-10 p-4 placeholder:text-sm placeholder:font-semibold placeholder:text-gray-500"
+              type="text"
+              placeholder="What is the task today?"
+              id="input"
+            />
+            <button
+              class="text-white text-sm font-semibold bg-[#8758FF] border-none inline-block p-2 select-none"
+              type="submit"
+              id="btn"
+            >
+              Add Task
+            </button>
+          </div>
+        </form>
+        <!-- <div
+          class="bg-[#8758FF] text-white rounded-md p-3 flex justify-between cursor-pointer"
+          id="task"
+        >
+          <p id="task-text">hehe</p>
+          <div id="box-icon">
+            <i class="fa-solid fa-pen-to-square" id="ic-edit"></i>
+            <i class="fa-solid fa-trash" id="ic-bin"></i>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
