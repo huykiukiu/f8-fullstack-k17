@@ -58,7 +58,15 @@ listLi.forEach((li) => {
       rename.classList.add("rename");
       rename.innerText = "Đổi tên";
       //  xử lý sự kiện click đổi tên
-      rename.addEventListener("click", () => {
+      rename.addEventListener("click", (e) => {
+        // xử lý ESC để thoát overlay và form khi nhấn vào đổi tên
+        document.addEventListener("keydown", (e) => {
+          const menuExist = document.querySelector(".menu");
+          if (e.key === "Escape") {
+            overlay.remove();
+          }
+        });
+        // kiểm tra nếu có menu tồn tại thì xóa
         const menuExist = document.querySelectorAll(".menu");
         menuExist.forEach((menu) => menu.remove());
         // tạo lớp phủ
@@ -126,6 +134,7 @@ document.addEventListener("click", () => {
 // xử lý sự kiện nhấn ESC để đóng menu:
 document.addEventListener("keydown", (e) => {
   const menuExist = document.querySelector(".menu");
+  if (!menuExist) return;
   if (e.key === "Escape") {
     menuExist.remove();
   }
