@@ -313,8 +313,8 @@ const app = {
         <form class="border border-gray-300 max-w-[80%] bg-white p-2 mx-auto mt-60">
             <h1 class="font-bold mb-3">Thêm bài viết</h1>
             <hr class="mb-3 border-gray-300"/>
-            <input class="border block mb-2 w-full p-3" type="text"/>
-            <textarea class="border block w-full p-3 mb-2"></textarea>
+            <input class="border block mb-2 w-full p-3" type="text" placeholder="Tiêu đề bài viết"/>
+            <textarea class="border block w-full p-3 mb-2" placeholder="Nội dung bài viết"></textarea>
             <button class="hover:bg-blue-500 cursor-pointer border bg-green-700 text-white px-3" type="submit">Lưu</button>
         </form>`;
 
