@@ -14,6 +14,7 @@ const app = {
     this.getPostDetail();
     this.deletePost();
     this.editPost();
+    this.createPost();
   },
   async getUsers() {
     try {
@@ -285,7 +286,7 @@ const app = {
           }
         });
 
-        // xử lý đóng modal:
+        // xử lý đóng modal và overlay
         const closeModalBtn = document.querySelector(".js-close-modal");
         closeModalBtn.addEventListener("click", () => {
           const overlayEl = document.querySelector(".js-overlay");
@@ -298,6 +299,100 @@ const app = {
           document.body.classList.remove("overflow-hidden");
         });
       }
+    });
+  },
+
+  createPost() {
+    const createPostBtn = document.querySelector(".js-create-btn");
+    createPostBtn.addEventListener("click", (e) => {
+      const overlayEl = document.querySelector(".js-overlay");
+      overlayEl.classList.remove("hidden");
+
+      const postCreateEl = document.querySelector(".js-post-create");
+      postCreateEl.innerHTML = `
+        <form class="border border-gray-300 max-w-[80%] bg-white p-2 mx-auto mt-60">
+            <h1 class="font-bold mb-3">Thêm bài viết</h1>
+            <hr class="mb-3 border-gray-300"/>
+            <input class="border block mb-2 w-full p-3" type="text"/>
+            <textarea class="border block w-full p-3 mb-2"></textarea>
+            <button class="hover:bg-blue-500 cursor-pointer border bg-green-700 text-white px-3" type="submit">Lưu</button>
+        </form>`;
+
+      const formEl = postCreateEl.querySelector("form");
+      formEl.addEventListener("click", (e) => {
+        e.stopPropagation();
+      });
+
+      formEl.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const title = formEl.querySelector("input").value;
+        const body = formEl.querySelector("textarea").value;
+        const dataJson = JSON.stringify({ title, body, userId: 5 });
+        const res = await fetch(`${BASE_URL}/posts/add`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: dataJson,
+        });
+        const data = await res.json();
+        const postListEl = document.querySelector(".js-post-list");
+
+        const divEl = document.createElement("div");
+        divEl.className = "my-3 border border-gray-300 p-5";
+        divEl.dataset.id = data.id;
+
+        const h2 = document.createElement("h2");
+        h2.className = "text-2xl font-medium mb-3";
+        h2.innerText = data.title;
+
+        const p = document.createElement("p");
+        p.innerText = data.body;
+
+        const divButtonEl = document.createElement("div");
+        divButtonEl.className = "flex justify-between mt-3";
+
+        const button = document.createElement("button");
+        button.className =
+          "js-detail-btn cursor-pointer border border-gray-300 py-2 px-5 hover:bg-green-600 rounded-full";
+        button.dataset.id = data.id;
+        button.innerText = "Xem chi tiết";
+
+        const divSpanEl = document.createElement("div");
+        divSpanEl.className = "flex gap-2";
+
+        const editSpanEl = document.createElement("span");
+        editSpanEl.className = "js-edit-btn cursor-pointer";
+        editSpanEl.dataset.id = data.id;
+        editSpanEl.innerText = "Sửa";
+
+        const deleteSpanEl = document.createElement("span");
+        deleteSpanEl.className = "js-delete-btn text-red-600 cursor-pointer";
+        deleteSpanEl.dataset.id = data.id;
+        deleteSpanEl.innerText = "Xóa";
+
+        divSpanEl.append(editSpanEl, deleteSpanEl);
+        divButtonEl.append(button, divSpanEl);
+
+        divEl.append(h2, p, divButtonEl);
+        postListEl.prepend(divEl);
+
+        //   Xử lý nút Lưu
+        const overlayEl = document.querySelector(".js-overlay");
+        overlayEl.classList.add("hidden");
+        document.body.classList.remove("overflow-hidden");
+      });
+
+      // xử lý đóng modal và overlay
+      const closeModalBtn = document.querySelector(".js-close-modal");
+      closeModalBtn.addEventListener("click", () => {
+        const overlayEl = document.querySelector(".js-overlay");
+        overlayEl.classList.add("hidden");
+        document.body.classList.remove("overflow-hidden");
+      });
+
+      overlayEl.addEventListener("click", () => {
+        overlayEl.classList.add("hidden");
+        document.body.classList.remove("overflow-hidden");
+      });
     });
   },
 };
