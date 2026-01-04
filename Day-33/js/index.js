@@ -2,29 +2,31 @@ const App = () => {
   const [tasks, setTasks] = React.useState([]);
   const [completedTask, setCompletedTask] = React.useState([]);
   const [stateUpdateTask, setStateUpdateTask] = React.useState([]);
-  const [updateTask, setUpdateTask] = React.useState([]);
+
   const handleAddTask = (value) => {
     setTasks([...tasks, value]);
     setCompletedTask([...completedTask, false]);
     setStateUpdateTask([...stateUpdateTask, false]);
-    setUpdateTask([...tasks, value]);
   };
   const handleDeleteTask = (_index) => {
     setTasks(tasks.filter((_, index) => index !== _index));
+    setCompletedTask(completedTask.filter((_, index) => index !== _index));
+    setStateUpdateTask(stateUpdateTask.filter((_, index) => index !== _index));
   };
   const handleCompletedTask = (_index) => {
     const newCompletedTask = [...completedTask];
     newCompletedTask[_index] = !newCompletedTask[_index];
     setCompletedTask([...newCompletedTask]);
   };
-  const handleUpdateTask = (_index, value) => {
+  const handleOpenEditTask = (_index) => {
     const newStateUpdateTask = [...stateUpdateTask];
     newStateUpdateTask[_index] = !newStateUpdateTask[_index];
     setStateUpdateTask([...newStateUpdateTask]);
-    const newUpdateTask = [...updateTask];
-    newUpdateTask[_index] = value;
-    setUpdateTask([...newUpdateTask]);
-    setTasks([...newUpdateTask]);
+  };
+  const handleUpdateTask = (_index, value) => {
+    const newTasks = [...tasks];
+    newTasks[_index] = value;
+    setTasks([...newTasks]);
   };
   const handleChangeStateUpdateTask = (_index) => {
     const newStateUpdateTask = [...stateUpdateTask];
@@ -39,8 +41,9 @@ const App = () => {
         onDeleteTask={handleDeleteTask}
         onCompleted={handleCompletedTask}
         completedTask={completedTask}
-        onHandleUpdateTask={handleUpdateTask}
+        onOpenEditTask={handleOpenEditTask}
         stateUpdateTask={stateUpdateTask}
+        onUpdateTask={handleUpdateTask}
         onChangeStateUpdateTask={handleChangeStateUpdateTask}
       />
     </>
@@ -83,25 +86,27 @@ const Task = ({
   onDeleteTask,
   onCompleted,
   completedTask,
-  onHandleUpdateTask,
+  onOpenEditTask,
   stateUpdateTask,
+  onUpdateTask,
   onChangeStateUpdateTask,
 }) => {
-  const [editValues, setEditValues] = React.useState([]);
+  const [editValues, setEditValues] = React.useState(tasks);
+
   const handleChangeValue = (index, e) => {
-    const newEditValues = [...tasks];
+    const newEditValues = [...editValues];
     newEditValues[index] = e.target.value;
     setEditValues(newEditValues);
   };
-  const handleChangeStateUpdateTask = (index) => {
+  const handleUpdateTask = (index) => {
     onChangeStateUpdateTask(index);
+    onUpdateTask(index, editValues[index] ?? tasks[index]);
   };
   return (
     <>
       {tasks.map((task, index) => (
-        <>
+        <React.Fragment key={index}>
           <div
-            key={index}
             className={
               stateUpdateTask[index]
                 ? "bg-purple-600 flex items-center justify-between rounded-sm px-3 py-3 mb-5 hidden"
@@ -122,9 +127,7 @@ const Task = ({
             <div className="flex items-center gap-2">
               <i
                 className="fa-solid fa-pen-to-square text-white text-xl cursor-pointer"
-                onClick={() =>
-                  onHandleUpdateTask(index, editValues[index] ?? task)
-                }
+                onClick={() => onOpenEditTask(index)}
               ></i>
               <i
                 className="fa-solid fa-trash text-white text-xl cursor-pointer"
@@ -134,7 +137,6 @@ const Task = ({
           </div>
 
           <div
-            key={index}
             className={
               stateUpdateTask[index] ? "flex mb-5" : "flex mb-5 hidden"
             }
@@ -149,12 +151,12 @@ const Task = ({
             <button
               type="button"
               className="bg-purple-600 text-white p-1 flex items-center cursor-pointer"
-              onClick={() => handleChangeStateUpdateTask(index)}
+              onClick={() => handleUpdateTask(index)}
             >
               Update Task
             </button>
           </div>
-        </>
+        </React.Fragment>
       ))}
     </>
   );
