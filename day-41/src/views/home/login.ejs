@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <form method="post">
+        <h1>Đăng nhập</h1>
+        <% if (error.length > 0) { %>
+            <div class="error-message-box"><%= error[0] %></div>
+        <% } %>
+        <% if (success.length > 0) { %>
+            <div class="sucess-message-box"><%= success[0] %></div>
+        <% } %>
+        <div class="email-div">
+          <label class="email-label">Email</label>
+          <input
+            type="email"
+            class="email-input"
+            name="email"
+            placeholder="Email..."
+          />
+        <% if (error.length > 0) { %>
+            <p><%= error[1] %></p>
+        <% } %>
+        </div>
+
+        <div class="password-div">
+          <label class="password-label">Password</label>
+          <input
+            type="password"
+            class="password-input"
+            name="password"
+            placeholder="Password..."
+          />
+        <% if (error.length > 0) { %>
+            <p><%= error[2] %></p>
+        <% } %>
+        </div>
+        <button>Đăng nhập</button>
+      </form>
+    </div>
+  </body>
+</html>
